@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hayson-89.github.io/hayson-sports/sitemap.xml
