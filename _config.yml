@@ -7,6 +7,27 @@ lang: ko
 remote_theme: jekyll/minima
 
 minima:
+  skin: auto
+  date_format: "%Y년 %m월 %d일"
+
+author:
+  name: "스포츠 라이프"
+
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-seo-tagtitle: "스포츠 라이프"
+description: "생활 스포츠 정보, 뉴스, 이야기를 매일 전합니다"
+url: "https://hayson-89.github.io"
+baseurl: "/hayson-sports"
+lang: ko
+
+remote_theme: jekyll/minima
+
+minima:
   skin: dark
   date_format: "%Y년 %m월 %d일"
 
