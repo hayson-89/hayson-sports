@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="home">
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <a class="thumb-wrap" href="{{ post.url | relative_url }}">
+        {% if post.thumbnail %}
+          <img src="{{ post.thumbnail }}" alt="{{ post.title }}" loading="lazy">
+        {% else %}
+          <img src="https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=640" alt="{{ post.title }}" loading="lazy">
+        {% endif %}
+        <div class="thumb-overlay">
+          {% if post.category %}
+            <span class="thumb-category {{ post.category_class }}">{{ post.category }}</span>
+          {% endif %}
+          <p class="thumb-title">{{ post.title }}</p>
+          <p class="thumb-date">{{ post.date | date: "%Y년 %m월 %d일" }}</p>
+        </div>
+      </a>
+      {% if post.description %}
+      <div class="post-list-item-body">
+        <p>{{ post.description }}</p>
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
