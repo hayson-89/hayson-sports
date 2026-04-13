@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="home">
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}" style="text-decoration:none;color:inherit;display:block;">
+        {% if post.thumbnail %}
+          <img
+            class="post-thumbnail"
+            src="{{ post.thumbnail }}"
+            alt="{{ post.title }}"
+            loading="lazy"
+          >
+        {% else %}
+          <div class="post-thumbnail-placeholder">🏃</div>
+        {% endif %}
+      </a>
+      <div class="post-list-item-body">
+        {% if post.category %}
+          <span class="post-category {{ post.category_class }}">{{ post.category }}</span>
+        {% endif %}
+        <h3>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <p class="post-meta">{{ post.date | date: site.minima.date_format }}</p>
+        {% if post.description %}
+          <p>{{ post.description }}</p>
+        {% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
