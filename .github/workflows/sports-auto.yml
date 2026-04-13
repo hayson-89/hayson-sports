@@ -1,0 +1,44 @@
+name: Sports Auto Post
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      post_count:
+        description: '생성할 글 개수 (1~5)'
+        required: false
+        default: '2'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Generate posts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          POST_COUNT: ${{ github.event.inputs.post_count || '2' }}
+        run: python generate_sports_blog.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add _posts/
+          git diff --staged --quiet || git commit -m "Sports post: $(date +'%Y-%m-%d')"
+          git pull --rebase origin main
+          git push
