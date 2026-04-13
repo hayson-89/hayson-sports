@@ -1,0 +1,228 @@
+---
+---
+
+@import "minima/skins/dark";
+@import "minima/initialize";
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #0a0e17;
+  color: #cdd6f4;
+  line-height: 1.8;
+}
+
+.site-header {
+  background: #0a0e17;
+  border-bottom: 1px solid #1e2640;
+  padding: 0;
+}
+
+.site-header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  max-width: 1100px !important;
+  padding: 0 24px;
+}
+
+.site-title {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-title::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #e63946, #f4a261);
+  border-radius: 6px;
+}
+
+.site-nav .page-link {
+  color: #94a3b8 !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: color 0.2s;
+}
+
+.site-nav .page-link:hover {
+  color: #fff !important;
+}
+
+.wrapper {
+  max-width: 1100px !important;
+  padding: 0 24px;
+}
+
+.page-content {
+  padding: 40px 0;
+}
+
+/* 썸네일 그리드 레이아웃 */
+.post-list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.post-list > li {
+  background: #111827;
+  border: 1px solid #1e2640;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.post-list > li:hover {
+  border-color: #3b4a6b;
+  transform: translateY(-3px);
+}
+
+/* 썸네일 이미지 */
+.post-thumbnail {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+
+.post-thumbnail-placeholder {
+  width: 100%;
+  aspect-ratio: 3/2;
+  background: linear-gradient(135deg, #1e2640, #2d3a5a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.post-list-item-body {
+  padding: 16px 20px 20px;
+}
+
+.post-category {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.cat-news { background: rgba(230,57,70,0.15); color: #e63946; }
+.cat-info { background: rgba(244,162,97,0.15); color: #f4a261; }
+.cat-story { background: rgba(0,180,216,0.15); color: #00b4d8; }
+
+.post-list h3 {
+  margin: 0 0 8px !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+.post-list h3 a {
+  color: #e2e8f0 !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.post-list h3 a:hover {
+  color: #818cf8 !important;
+}
+
+.post-meta {
+  font-size: 12px !important;
+  color: #4b5563 !important;
+  margin-bottom: 8px !important;
+}
+
+.post-list p {
+  color: #6b7280 !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 글 상세 */
+.post-header {
+  margin-bottom: 36px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #1e2640;
+}
+
+.post-title {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #f1f5f9 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 14px !important;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #cbd5e1;
+  line-height: 1.9;
+}
+
+.post-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 24px 0;
+}
+
+.post-content h2 {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  color: #f1f5f9 !important;
+  margin-top: 44px !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #1e2640;
+}
+
+.post-content h3 {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #94a3b8 !important;
+  margin-top: 28px !important;
+}
+
+.post-content a { color: #818cf8 !important; }
+
+.post-content blockquote {
+  border-left: 3px solid #e63946 !important;
+  background: #111827;
+  margin: 20px 0;
+  padding: 14px 20px;
+  border-radius: 0 10px 10px 0;
+  color: #94a3b8 !important;
+}
+
+.site-footer {
+  background: #0a0e17 !important;
+  border-top: 1px solid #1e2640 !important;
+  color: #374151 !important;
+  font-size: 13px;
+}
